@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Neet Code 150 Medium</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="fa0ed560-7b25-4fab-8635-4663169c3b6a" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👨🏽‍💻</span></div><h1 class="page-title">Neet Code 150 Medium</h1><p class="page-description"></p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Status</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Problem</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/tag_gray.svg" style="width:14px;height:14px"/></span>Tags</th></tr></thead><tbody><tr id="d77187ef-51ba-4186-8a35-c0955451c813"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Non-Overlapping%20Intervals%20d77187ef51ba41868a35c0955451c813.html">Non-Overlapping Intervals</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="0cdb327c-460e-4930-ab9f-41680f31cc1b"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Meeting%20Rooms%20II%200cdb327c460e4930ab9f41680f31cc1b.html">Meeting Rooms II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Heap</span></td></tr><tr id="715f6478-367c-47b5-8a5f-09619976bde0"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Group%20Anagrams%20715f6478367c47b58a5f09619976bde0.html">Group Anagrams</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Hash Map</span></td></tr><tr id="15946201-d66c-4b06-a155-bbbecb5dde55"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Top%20K%20Frequent%20Elements%2015946201d66c4b06a155bbbecb5dde55.html">Top K Frequent Elements</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Heap</span></td></tr><tr id="35740d66-11dc-4ebc-86ca-842689f0778d"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Copy%20List%20with%20Random%20Pointer%2035740d6611dc4ebc86ca842689f0778d.html">Copy List with Random Pointer</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Linked List</span></td></tr><tr id="68e9f174-3b90-4ef9-880c-4c04976143aa"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Combination%20Sum%20II%2068e9f1743b904ef9880c4c04976143aa.html">Combination Sum II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="8e80df32-17c4-43a8-ae28-32da109b9e07"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Subsets%208e80df3217c443a8ae2832da109b9e07.html">Subsets</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="6a537154-cc5c-4562-8672-12ad32f8416a"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Design%20Add%20and%20Search%20Words%20Data%20Structure%206a537154cc5c4562867212ad32f8416a.html">Design Add and Search Words Data Structure</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">Trie</span></td></tr><tr id="d1980344-2e04-4de0-acab-48aeaa6fff20"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Add%20Two%20Numbers%20d19803442e044de0acab48aeaa6fff20.html">Add Two Numbers</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Linked List</span></td></tr><tr id="6f4ef6fe-c557-4bcb-9edd-9b4d3a4e56bc"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Evaluate%20Reverse%20Polish%20Notation%206f4ef6fec5574bcb9edd9b4d3a4e56bc.html">Evaluate Reverse Polish Notation</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-red">Stack</span></td></tr><tr id="05c2cfe0-eac1-4107-b364-b70010176b3f"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Maximum%20Product%20Subarray%2005c2cfe0eac14107b364b70010176b3f.html">Maximum Product Subarray</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Greedy</span></td></tr><tr id="fc1eaacf-f1df-48e4-95cb-038db68df3d9"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Maximum%20Subarray%20fc1eaacff1df48e495cb038db68df3d9.html">Maximum Subarray</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Greedy</span></td></tr><tr id="b8f6929a-d2a6-4dfd-9d68-d1e14300d6b5"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Number%20of%20Connected%20Components%20in%20Graph%20b8f6929ad2a64dfd9d68d1e14300d6b5.html">Number of Connected Components in Graph</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span><span class="selected-value select-value-color-blue">UnionFind</span></td></tr><tr id="dd599b46-1add-4947-a01c-48960bce0f31"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Merge%20Triplets%20to%20Form%20Target%20Triplet%20dd599b461add4947a01c48960bce0f31.html">Merge Triplets to Form Target Triplet</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Greedy</span></td></tr><tr id="4089d513-d9c9-4f72-86e9-7702f5f3189a"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Two%20Sum%20II%204089d513d9c94f7286e97702f5f3189a.html">Two Sum II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Binary Search</span><span class="selected-value select-value-color-green">Hash Map</span></td></tr><tr id="cff6aa36-c47a-4298-9612-41cbb455a313"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Pacific%20Atlantic%20Waterflow%20cff6aa36c47a4298961241cbb455a313.html">Pacific Atlantic Waterflow</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="41dd223b-7c24-491a-b622-46a654fff500"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Koko%20Eating%20Bananas%2041dd223b7c24491ab62246a654fff500.html">Koko Eating Bananas</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Binary Search</span></td></tr><tr id="2c843818-6fd2-48ac-ad77-f2ea21b7cd3c"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Valid%20SudoKU%202c8438186fd248acad77f2ea21b7cd3c.html">Valid SudoKU</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Array</span></td></tr><tr id="6991b1a7-f6e8-4bf6-a2c3-a7c8451f6fa7"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Clone%20Graph%206991b1a7f6e84bf6a2c3a7c8451f6fa7.html">Clone Graph</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span><span class="selected-value select-value-color-green">Hash Map</span></td></tr><tr id="cb874e35-1b58-4fe7-bb63-5ff82f9a6692"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Jump%20Game%20cb874e351b584fe7bb635ff82f9a6692.html">Jump Game</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Greedy</span></td></tr><tr id="5970b9c5-46fc-4e08-93df-bddda7835df3"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Number%20of%20Islands%205970b9c546fc4e0893dfbddda7835df3.html">Number of Islands</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="4dc299c7-4567-4043-b7a2-e1cd9b26be60"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Jump%20Game%20II%204dc299c745674043b7a2e1cd9b26be60.html">Jump Game II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="6b58ccf3-1e0d-4095-bc78-5328b339a792"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Kth%20Smallest%20Element%20in%20a%20BST%206b58ccf31e0d4095bc785328b339a792.html">Kth Smallest Element in a BST</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Array</span><span class="selected-value select-value-color-red">Stack</span></td></tr><tr id="2812636b-94e6-486e-8c4d-d0aa47ea0727"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Reorder%20List%202812636b94e6486e8c4dd0aa47ea0727.html">Reorder List</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Linked List</span></td></tr><tr id="79935107-f87f-48e0-b6da-bbc2d7536557"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Multiply%20Strings%2079935107f87f48e0b6dabbc2d7536557.html">Multiply Strings</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">Math</span></td></tr><tr id="33cc5748-94b0-4d3f-a568-2006003b6efa"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Walls%20and%20Gates%2033cc574894b04d3fa5682006003b6efa.html">Walls and Gates</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">BFS</span></td></tr><tr id="2e577b1e-44be-43a3-ad68-c6462465b088"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Decode%20Ways%202e577b1e44be43a3ad68c6462465b088.html">Decode Ways</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="18013dc4-a6d2-4936-a2ae-cf9f273759d8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Encode%20and%20Decode%20Strings%2018013dc4a6d24936a2aecf9f273759d8.html">Encode and Decode Strings</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-red">String</span></td></tr><tr id="fa2e4603-18db-4061-9b54-9b807033f2a8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Course%20Schedule%20II%20fa2e460318db40619b549b807033f2a8.html">Course Schedule II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span><span class="selected-value select-value-color-gray">Graph</span></td></tr><tr id="08f85946-0364-45e4-bb55-42e803b848fd"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Rotting%20Oranges%2008f85946036445e4bb5542e803b848fd.html">Rotting Oranges</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">BFS</span></td></tr><tr id="6dc5ace5-792b-45bb-8360-c28e2caf2d16"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Implement%20Trie%206dc5ace5792b45bb8360c28e2caf2d16.html">Implement Trie</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">Trie</span></td></tr><tr id="02124f3b-846c-4a8c-89e0-e0d12f783e70"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Binary%20Tree%20Level%20Order%20Traversal%2002124f3b846c4a8c89e0e0d12f783e70.html">Binary Tree Level Order Traversal</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">BFS</span></td></tr><tr id="588d2e1d-e27e-403f-9678-b9a28e3a31e0"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Count%20Good%20Nodes%20in%20a%20Binary%20Tree%20588d2e1de27e403f9678b9a28e3a31e0.html">Count Good Nodes in a Binary Tree</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="b465cfa2-7a0f-49dd-bd1e-0de144efc6e1"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Validate%20Binary%20Search%20Tree%20b465cfa27a0f49ddbd1e0de144efc6e1.html">Validate Binary Search Tree</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="895e4bb6-2b38-4d6e-bcf2-f2b165f009ce"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Binary%20Tree%20Right%20Side%20View%20895e4bb62b384d6ebcf2f2b165f009ce.html">Binary Tree Right Side View</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">BFS</span><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="6b82a7e4-5c3d-41fc-a151-6b96a79274ab"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Find%20the%20Duplicate%20Number%206b82a7e45c3d41fca1516b96a79274ab.html">Find the Duplicate Number</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Array</span></td></tr><tr id="02e27d44-9da3-4ac6-b989-659e04e0b986"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/LRU%20Cache%2002e27d449da34ac6b989659e04e0b986.html">LRU Cache</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Hash Map</span><span class="selected-value select-value-color-gray">Linked List</span></td></tr><tr id="3fcb49ae-dc50-470e-a87a-41d37e6e817f"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Max%20Area%20of%20Island%203fcb49aedc50470ea87a41d37e6e817f.html">Max Area of Island</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">BFS</span><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="6db89d92-9730-4915-9721-4e7073b25895"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Redundant%20Connection%206db89d929730491597214e7073b25895.html">Redundant Connection</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">UnionFind</span></td></tr><tr id="8d37082c-0ea7-4ed6-9a1c-9c27fed62c8f"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Graph%20Valid%20Tree%208d37082c0ea74ed69a1c9c27fed62c8f.html">Graph Valid Tree</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span><span class="selected-value select-value-color-blue">UnionFind</span></td></tr><tr id="1dfdd688-e0dc-4623-8784-b2cc3b1de081"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Find%20Minimum%20in%20Rotated%20Sorted%20Array%201dfdd688e0dc46238784b2cc3b1de081.html">Find Minimum in Rotated Sorted Array</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Binary Search</span></td></tr><tr id="bf032d39-681f-4702-a160-09806acf1c8f"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Search%20Rotated%20Sorted%20Array%20bf032d39681f4702a16009806acf1c8f.html">Search Rotated Sorted Array</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Binary Search</span></td></tr><tr id="04675060-fea7-4cc6-8408-120f104152f8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Time%20Based%20Key-Value%20Store%2004675060fea74cc68408120f104152f8.html">Time Based Key-Value Store</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Binary Search</span></td></tr><tr id="af4e97b9-224d-42db-8333-15590003dec8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Letter%20Combinations%20of%20a%20Phone%20Number%20af4e97b9224d42db833315590003dec8.html">Letter Combinations of a Phone Number</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="9b790efb-5dd0-4cec-be98-3356c28e3f02"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Permutations%209b790efb5dd04cecbe983356c28e3f02.html">Permutations</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="e0b884b8-b673-4fdc-856d-53831698c01a"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Subsets%20II%20e0b884b8b6734fdc856d53831698c01a.html">Subsets II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="10ece508-9f5d-4d34-aaa2-f64daae59e98"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Combination%20Sum%2010ece5089f5d4d34aaa2f64daae59e98.html">Combination Sum</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="3e19fb1c-2dc4-461a-b51d-5023d7f333d2"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Word%20Search%203e19fb1c2dc4461ab51d5023d7f333d2.html">Word Search</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span></td></tr><tr id="bd5dd691-1f12-4e58-b51e-1650682c2dd3"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Palindrome%20Partitioning%20bd5dd6911f124e58b51e1650682c2dd3.html">Palindrome Partitioning</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">BackTracking</span><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="8aea191d-76ba-48e1-8b12-3f82f43044ef"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Remove%20Nth%20Node%20from%20End%20of%20List%208aea191d76ba48e18b123f82f43044ef.html">Remove Nth Node from End of List</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Linked List</span></td></tr><tr id="16858959-9883-4c37-a8c3-2445e647c7f0"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Cheapest%20Flights%20with%20K%20Stops%201685895998834c37a8c32445e647c7f0.html">Cheapest Flights with K Stops</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Graph</span></td></tr><tr id="c231121d-1ac9-4ddb-af22-7812cc07da98"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Spiral%20Matrix%20c231121d1ac94ddbaf227812cc07da98.html">Spiral Matrix</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Matrix</span></td></tr><tr id="d58b56cc-d7cd-4d02-9bbc-e7f820d54ff5"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Pow(x,%20n)%20d58b56ccd7cd4d029bbce7f820d54ff5.html">Pow(x, n)</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Divide and Conquer</span></td></tr><tr id="782fdcd4-39f5-49eb-b8a4-7f26950f2f17"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Set%20Matrix%20Zeroes%20782fdcd439f549ebb8a47f26950f2f17.html">Set Matrix Zeroes</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-yellow">Math</span><span class="selected-value select-value-color-default">Matrix</span></td></tr><tr id="a1bf9946-be7f-455f-aabd-2692a30f7e85"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Rotate%20Image%20a1bf9946be7f455faabd2692a30f7e85.html">Rotate Image</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Matrix</span></td></tr><tr id="30ef1395-2d8f-4025-996f-6ad64b9198f8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Design%20Twitter%2030ef13952d8f4025996f6ad64b9198f8.html">Design Twitter</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Hash Map</span><span class="selected-value select-value-color-default">Heap</span><span class="selected-value select-value-color-gray">Linked List</span></td></tr><tr id="a7aab869-3c96-42ec-b7be-63284cb98b37"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Kth%20Largest%20Element%20in%20an%20Array%20a7aab8693c9642ecb7be63284cb98b37.html">Kth Largest Element in an Array</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Heap</span><span class="selected-value select-value-color-orange">QuickSelect</span><span class="selected-value select-value-color-yellow">QuickSort</span></td></tr><tr id="18651f3f-3ec1-437b-a46a-73bf6f71e3e7"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/K%20Closest%20Points%20to%20Origin%2018651f3f3ec1437ba46a73bf6f71e3e7.html">K Closest Points to Origin</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Heap</span></td></tr><tr id="8ce5be44-2b82-4da7-9749-fd481b663ae6"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Task%20Scheduler%208ce5be442b824da79749fd481b663ae6.html">Task Scheduler</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-default">Heap</span></td></tr><tr id="3750e07e-23a5-4762-a92b-a5e861a8a407"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Permutation%20in%20String%203750e07e23a54762a92ba5e861a8a407.html">Permutation in String</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Sliding Window</span><span class="selected-value select-value-color-purple">Two Pointers</span></td></tr><tr id="38f896a6-d6a3-4b8d-b7e9-f53abfffca38"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Longest%20Substring%20Without%20Repeating%20Characters%2038f896a6d6a34b8db7e9f53abfffca38.html">Longest Substring Without Repeating Characters</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Sliding Window</span><span class="selected-value select-value-color-red">String</span><span class="selected-value select-value-color-purple">Two Pointers</span></td></tr><tr id="793b34e8-b340-46d5-a564-817c87516d3a"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Longest%20Repeating%20Character%20Replacement%20793b34e8b34046d5a564817c87516d3a.html">Longest Repeating Character Replacement</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Hash Map</span><span class="selected-value select-value-color-purple">Two Pointers</span></td></tr><tr id="a2357f23-1a14-4a2d-9985-640173a1b4df"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Daily%20Temperatures%20a2357f231a144a2d9985640173a1b4df.html">Daily Temperatures</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-red">Stack</span></td></tr><tr id="0df22d52-efa3-4c0d-bf02-ccaf62d36ded"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Generate%20Parentheses%200df22d52efa34c0dbf02ccaf62d36ded.html">Generate Parentheses</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span><span class="selected-value select-value-color-brown">Recursion</span><span class="selected-value select-value-color-red">Stack</span></td></tr><tr id="56f2ee5a-0043-4545-b4ef-be8f60b6ecb8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Min%20Stack%2056f2ee5a00434545b4efbe8f60b6ecb8.html">Min Stack</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-red">Stack</span></td></tr><tr id="29240464-4622-4930-aa26-f3d199d9ea38"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Container%20with%20Most%20Water%202924046446224930aa26f3d199d9ea38.html">Container with Most Water</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Two Pointers</span></td></tr><tr id="2f4e68c1-5d32-4ed7-964d-3b609ed953a6"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Surrounded%20Regions%202f4e68c15d324ed7964d3b609ed953a6.html">Surrounded Regions</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span></td></tr><tr id="0342cbd3-2b9d-4716-a9e8-47a43d34e593"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Min%20Cost%20to%20Connect%20all%20Points%200342cbd32b9d4716a9e847a43d34e593.html">Min Cost to Connect all Points</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">UnionFind</span></td></tr><tr id="0ad8a063-2ce3-4560-bbce-e63dd94fcd6d"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Course%20Schedule%200ad8a0632ce34560bbcee63dd94fcd6d.html">Course Schedule</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-blue">DFS</span><span class="selected-value select-value-color-gray">Topological Sort</span></td></tr><tr id="ddb1e861-6a45-4ad7-a351-ff6e8155d44c"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/198%20House%20Robber%20ddb1e8616a454ad7a351ff6e8155d44c.html">198. House Robber</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="99154502-aa39-4945-8f03-21a008cc9b3a"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/House%20Robber%20II%2099154502aa3949458f0321a008cc9b3a.html">House Robber II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="e963727a-4bdd-4f85-b28b-22ca8215e181"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Longest%20Palindroming%20Substring%20e963727a4bdd4f85b28b22ca8215e181.html">Longest Palindroming Substring</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="3d26dc3b-6460-411e-a3ef-2b72ccca3747"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Coin%20Change%203d26dc3b6460411ea3ef2b72ccca3747.html">Coin Change</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="40f55cb7-b7d4-4e2b-a51d-8b2fc73f8a54"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Word%20Break%2040f55cb7b7d44e2ba51d8b2fc73f8a54.html">Word Break</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span><span class="selected-value select-value-color-green">Memoization</span></td></tr><tr id="73297fd8-6963-4eea-9738-4e4b76fa153e"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Partition%20Equal%20Subset%20Sum%2073297fd869634eea97384e4b76fa153e.html">Partition Equal Subset Sum</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span><span class="selected-value select-value-color-green">Memoization</span><span class="selected-value select-value-color-brown">Recursion</span></td></tr><tr id="b5823ea3-89c9-453c-9cb9-8f8b7d64b23b"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Palindrome%20Substrings%20b5823ea389c9453c9cb98f8b7d64b23b.html">Palindrome Substrings</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span><span class="selected-value select-value-color-purple">Two Pointers</span></td></tr><tr id="cd95d103-7e3f-45f5-9eda-e45fa785c3fa"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Longest%20Increasing%20Subsequence%20cd95d1037e3f45f59edae45fa785c3fa.html">Longest Increasing Subsequence</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="bbf37132-b7b5-418a-8c40-69edb79d842d"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Coin%20Change%20II%20bbf37132b7b5418a8c4069edb79d842d.html">Coin Change II</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="b0fbe666-5d0f-46f2-b685-42d60b03ccc2"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Interleaving%20String%20b0fbe6665d0f46f2b68542d60b03ccc2.html">Interleaving String</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="018c9194-fbce-45b9-95e1-99fb1ddd36b8"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Valid%20Parenthesis%20String%20018c9194fbce45b995e199fb1ddd36b8.html">Valid Parenthesis String</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="976205a1-a674-40fd-bc82-236212fa4b7f"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Partition%20Labels%20976205a1a67440fdbc82236212fa4b7f.html">Partition Labels</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Greedy</span><span class="selected-value select-value-color-purple">Two Pointers</span></td></tr><tr id="2fbbf242-c513-4c3b-8437-c0a573aed616"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Gas%20Station%202fbbf242c5134c3b8437c0a573aed616.html">Gas Station</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-purple">Greedy</span><span class="selected-value select-value-color-yellow">Preprocessing</span></td></tr><tr id="25dedd05-2a47-408f-b666-4a4efb8a86c3"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Hand%20of%20Straights%2025dedd052a47408fb6664a4efb8a86c3.html">Hand of Straights</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-green">Hash Map</span><span class="selected-value select-value-color-default">Sorting</span></td></tr><tr id="b532b5bb-5870-403d-aced-553a357c30bd"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Insert%20Interval%20b532b5bb5870403daced553a357c30bd.html">Insert Interval</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-brown">Intervals</span></td></tr><tr id="6ec05db9-2295-4691-ada9-59225e6e4020"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Best%20Time%20to%20Buy%20Sell%20Stock%20With%20Cooldown%206ec05db922954691ada959225e6e4020.html">Best Time to Buy/Sell Stock With Cooldown</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span></td></tr><tr id="61df64a6-a79b-4eb7-952b-cfbcf388220a"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Unique%20Paths%2061df64a6a79b4eb7952bcfbcf388220a.html">Unique Paths</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span><span class="selected-value select-value-color-brown">Recursion</span></td></tr><tr id="e5ae06f7-1d87-4bc0-8d4c-df636d4fa6a1"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Longest%20Common%20Subsequence%20e5ae06f71d874bc08d4cdf636d4fa6a1.html">Longest Common Subsequence</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-orange">Dynamic Programming</span><span class="selected-value select-value-color-green">Memoization</span></td></tr><tr id="b4e79a23-5c14-4ec0-a36b-663645667520"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/3Sum%20b4e79a235c144ec0a36b663645667520.html">3Sum</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-pink">Binary Search</span></td></tr><tr id="8d5612ad-d3aa-459d-97a6-2866fcce759b"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/743%20Network%20Delay%20Time%208d5612add3aa459d97a62866fcce759b.html">743. Network Delay Time</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Graph</span></td></tr><tr id="d576e456-2417-4577-8d41-c88b3cb18633"><td class="cell-notion://tasks/status_property"><span class="status-value"><div class="status-dot"></div>Not started</span></td><td class="cell-title"><a href="Neet%20Code%20150%20Medium%20fa0ed5607b254fab86354663169c3b6a/Cheapest%20Flights%20with%20K%20Stops%20d576e456241745778d41c88b3cb18633.html">Cheapest Flights with K Stops</a></td><td class="cell-notion://tasks/tags_property"><span class="selected-value select-value-color-gray">Graph</span></td></tr></tbody></table><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
