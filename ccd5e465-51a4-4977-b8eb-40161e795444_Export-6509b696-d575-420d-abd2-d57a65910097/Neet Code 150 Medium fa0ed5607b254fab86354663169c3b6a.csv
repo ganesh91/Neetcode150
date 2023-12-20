@@ -1,0 +1,91 @@
+﻿Status,Problem,Tags
+Not started,Non-Overlapping Intervals,Dynamic Programming
+Not started,Meeting Rooms II,Heap
+Not started,Group Anagrams,Hash Map
+Not started,Top K Frequent Elements,Heap
+Not started,Copy List with Random Pointer,Linked List
+Not started,Combination Sum II,BackTracking
+Not started,Subsets,BackTracking
+Not started,Design Add and Search Words Data Structure,Trie
+Not started,Add Two Numbers,Linked List
+Not started,Evaluate Reverse Polish Notation,Stack
+Not started,Maximum Product Subarray,Greedy
+Not started,Maximum Subarray,Greedy
+Not started,Number of Connected Components in Graph,"DFS, UnionFind"
+Not started,Merge Triplets to Form Target Triplet,Greedy
+Not started,Two Sum II,"Binary Search, Hash Map"
+Not started,Pacific Atlantic Waterflow,DFS
+Not started,Koko Eating Bananas,Binary Search
+Not started,Valid SudoKU,Array
+Not started,Clone Graph,"DFS, Hash Map"
+Not started,Jump Game,Greedy
+Not started,Number of Islands,DFS
+Not started,Jump Game II,Dynamic Programming
+Not started,Kth Smallest Element in a BST,"Array, Stack"
+Not started,Reorder List,Linked List
+Not started,Multiply Strings,Math
+Not started,Walls and Gates,BFS
+Not started,Decode Ways,Dynamic Programming
+Not started,Encode and Decode Strings,String
+Not started,Course Schedule II,"DFS, Graph"
+Not started,Rotting Oranges,BFS
+Not started,Implement Trie,Trie
+Not started,Binary Tree Level Order Traversal,BFS
+Not started,Count Good Nodes in a Binary Tree,DFS
+Not started,Validate Binary Search Tree,DFS
+Not started,Binary Tree Right Side View,"BFS, DFS"
+Not started,Find the Duplicate Number,Array
+Not started,LRU Cache,"Hash Map, Linked List"
+Not started,Max Area of Island,"BFS, DFS"
+Not started,Redundant Connection,UnionFind
+Not started,Graph Valid Tree,"DFS, UnionFind"
+Not started,Find Minimum in Rotated Sorted Array,Binary Search
+Not started,Search Rotated Sorted Array,Binary Search
+Not started,Time Based Key-Value Store,Binary Search
+Not started,Letter Combinations of a Phone Number,BackTracking
+Not started,Permutations,BackTracking
+Not started,Subsets II,BackTracking
+Not started,Combination Sum,BackTracking
+Not started,Word Search,BackTracking
+Not started,Palindrome Partitioning,"BackTracking, Dynamic Programming"
+Not started,Remove Nth Node from End of List,Linked List
+Not started,Cheapest Flights with K Stops,Graph
+Not started,Spiral Matrix,Matrix
+Not started,"Pow(x, n)",Divide and Conquer
+Not started,Set Matrix Zeroes,"Math, Matrix"
+Not started,Rotate Image,Matrix
+Not started,Design Twitter,"Hash Map, Heap, Linked List"
+Not started,Kth Largest Element in an Array,"Heap, QuickSelect, QuickSort"
+Not started,K Closest Points to Origin,Heap
+Not started,Task Scheduler,Heap
+Not started,Permutation in String,"Sliding Window, Two Pointers"
+Not started,Longest Substring Without Repeating Characters,"Sliding Window, String, Two Pointers"
+Not started,Longest Repeating Character Replacement,"Hash Map, Two Pointers"
+Not started,Daily Temperatures,Stack
+Not started,Generate Parentheses,"DFS, Recursion, Stack"
+Not started,Min Stack,Stack
+Not started,Container with Most Water,Two Pointers
+Not started,Surrounded Regions,DFS
+Not started,Min Cost to Connect all Points,UnionFind
+Not started,Course Schedule,"DFS, Topological Sort"
+Not started,https://leetcode.com/problems/house-robber/,Dynamic Programming
+Not started,House Robber II,Dynamic Programming
+Not started,Longest Palindroming Substring,Dynamic Programming
+Not started,Coin Change,Dynamic Programming
+Not started,Word Break,"Dynamic Programming, Memoization"
+Not started,Partition Equal Subset Sum,"Dynamic Programming, Memoization, Recursion"
+Not started,Palindrome Substrings,"Dynamic Programming, Two Pointers"
+Not started,Longest Increasing Subsequence,Dynamic Programming
+Not started,Coin Change II,Dynamic Programming
+Not started,Interleaving String,Dynamic Programming
+Not started,Valid Parenthesis String,Dynamic Programming
+Not started,Partition Labels,"Greedy, Two Pointers"
+Not started,Gas Station,"Greedy, Preprocessing"
+Not started,Hand of Straights,"Hash Map, Sorting"
+Not started,Insert Interval,Intervals
+Not started,Best Time to Buy/Sell Stock With Cooldown,Dynamic Programming
+Not started,Unique Paths,"Dynamic Programming, Recursion"
+Not started,Longest Common Subsequence,"Dynamic Programming, Memoization"
+Not started,3Sum,Binary Search
+Not started,https://leetcode.com/problems/network-delay-time/,Graph
+Not started,Cheapest Flights with K Stops,Graph

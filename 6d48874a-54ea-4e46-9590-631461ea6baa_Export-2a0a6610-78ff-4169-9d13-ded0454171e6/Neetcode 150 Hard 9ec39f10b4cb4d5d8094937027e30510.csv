@@ -1,0 +1,18 @@
+﻿Task name,Tags
+Merge K Sorted List,Heaps
+Reverse Nodes in K-Group,Linked List
+Longest Consecutive Sequence,"HashMap, Sorting"
+N-Queens,Backtracking
+Edit Distance,"Dynamic Programming, Memoization"
+Minimum Window Substring,Two Pointers
+Sliding Window Maximum,Heaps
+Trapping Rain Water,Two Pointers
+Word Search II,"Backtracking, Trie"
+Binary Tree Max Path Sum,Trees
+Serialize and Deserialize Binary Tree,BFS
+Regular Expression Matching,Dynamic Programming
+Burst Balloons,Dynamic Programming
+Reconstruct Itinerary,Graph
+Swim in Rising Water,"Minimum Spanning Tree, Prims"
+Alien Dictionary,Topological Sort
+Word Ladder,HashMap
